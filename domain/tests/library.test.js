@@ -30,8 +30,15 @@ describe('Library', () => {
   it('throw an error when setting an invalid name', () => {
     expect(() => myLibrary.setName(123)).toThrow();
   });
+
   it('throw an error when setting an empty name', () => {
-    // TODO
+    expect(() => myLibrary.setName('')).toThrow();
+  });
+
+  it('return the total of words', () => {
+    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120, 5000);
+    myLibrary.addBook('El Hombre que Calculaba', 'Malba Tahan', 286, 3000);
+    expect(myLibrary.totalWords()).toBe(8000);
   });
 
 });
